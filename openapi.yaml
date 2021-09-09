@@ -5,7 +5,7 @@ info:
   title: "Bundesrat: Live Informationen"
 
 servers:
-  - url: "http://www.bundesrat.de"
+  - url: "https://www.bundesrat.de"
 
 paths:
   /iOS/v3/startlist_table.xml:
