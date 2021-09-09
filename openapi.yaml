@@ -1,32 +1,218 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: "Bundesrat Informationen API "
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "Bundesrat: Live Informationen"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "http://www.bundesrat.de"
 
 paths:
-  /dashboard/{AGS}.json:
+  /iOS/v3/startlist_table.xml:
     get:
-      summary: Name des Endpoints
+      summary: "Übersicht API Endpunkte"
       responses:
         '200':
             description: OK
             content:
-              application/json:
+              application/xml:
                 schema:
-                  $ref: '#/components/schemas/Result'
+                  type: string
       parameters:
-        - in: path
+        - in: query
           required: true
-          name: AGS
+          name: view
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: 091620000000
+          description: Xml Ausabe
+          example: renderXml
 
+  /iOS/v3/01_Aktuelles/aktuelles_table.xml:
+    get:
+      summary: "Aktuelles"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml
+ 
+    
+
+  /iOS/v3/02_Termine/termine_table.xml:
+    get:
+      summary: "Termine"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml     
+ 
+    
+
+  /iOS/v3/03_Plenum/plenum_kompakt_table.xml:
+    get:
+      summary: "Plenum Kompakt"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml    
+ 
+    
+
+  /iOS/SharedDocs/3_Plenum/plenum_aktuelleSitzung_table.xml:
+    get:
+      summary: "Plenum aktuelle Sitzung"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
+ 
+    
+
+  /iOS/SharedDocs/3_Plenum/plenum_toChronologisch_table.xml:
+    get:
+      summary: "Plenum Chronologisch"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
+ 
+    
+
+  /iOS/SharedDocs/3_Plenum/plenum_naechsteSitzungen.xml:
+    get:
+      summary: "Plenum nächste Sitzung"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
+ 
+    
+
+  /iOS/SharedDocs/2_Mitglieder/mitglieder_table.xml:
+    get:
+      summary: "Mitglieder"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
+ 
+    
+
+  /iOS/v3/06_Stimmen/stimmverteilung.xml:
+    get:
+      summary: "Stimmverteilung"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
+ 
+    
+
+  /iOS/v3/05_Bundesrat/Praesidium/bundesrat_praesidium.xml:
+    get:
+      summary: "Präsidium"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: view
+          schema:
+            type: string
+          description: Xml Ausabe
+          example: renderXml 
           
 components: 
     schemas:
