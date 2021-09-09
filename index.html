@@ -17,7 +17,7 @@
                 dom_id: "#openapi",
                requestInterceptor: function(req) {   
                     var mapping = {
-                        // add mapping here
+                        "www.bundesrat.de": "bundesrat.api.proxy.bund.dev"
                     }
                     if(this.url !== "openapi.yaml") {
                        var url = new URL(req.url);
