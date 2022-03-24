@@ -82,6 +82,7 @@ Stimmverteilung
 Präsidium
 
 
+## Beispiel
 
 ```bash
 result=$(curl -m 60 https://www.bundesrat.de/iOS/v3/startlist_table.xml?view=renderXml)
